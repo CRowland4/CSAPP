@@ -630,7 +630,6 @@ int main() {
 
 
 
-
     printf("Exercise 2.27\n\n");
     // Function solution uadd_ok() defined above
     printf("\n\n\n");
@@ -672,15 +671,75 @@ int main() {
 
 
 
-    printf("Exercise 2.31\n\n")n;
+    printf("Exercise 2.31\n\n");
+	// The buggy function
+	/*
     int buggy_tadd_ok(int x, int y) {
         int sum = x + y;
         return (sum - x == y) && (sum - y == x);
     }
 
+	(INCORRECT)
+	My thought here is that the issue will be the same compiler optimization issue present in my first answer to
+		Exercise 2.30. The compiler will just assume that sum - x == y and sum - y == x, because sum is x + y and then
+		of course the next two statements would be true mathematically.
+
+	(CORRECT)
+	My next thought is that due to the way modular arithmetic works, the overflow won't get caught here. For example,
+		consider this example with 3-bit signed integers: buggy_tadd_ok(2, 2). <sum> would overflow to -4, but then
+		sum - x == -4 - 2 == -6 which would wrap to 2, and sum - y would be the same calculation, so the checks would
+		pass but overflow would still be occuring.
+	*/
 
 
 
+	printf("Exercise 2.32\n\n");
+    
+
+    /*
+    Here is the buggy tsub_ok
+        int tsub_ok(int x, int y) {
+            return tadd_ok(x, -y);
+        }
+    */
+   
+    /*
+    This will fail when y = TMin, since -TMin = TMin (negation in binary two's complement is accomplished by inverting
+    all bits and then adding one - carrying this out with TMin results in TMin again).
+
+    Example 1: x < 0, y = TMin
+        The real math result here is x - TMin, but since TMin is negative, this turns into x + abs(TMin), which will not cause
+          an overflow in Two's Complement arithmetic since x < 0; we want a return value of 1 from tsub_ok.
+        But tsub_ok(x, TMin) turns into tadd_ok(x, TMin) which returns 0, because x + TMin results in a negative number less than
+          TMin.
+
+    Example 2: x = 0, y = TMin
+        The real math result of subtraction here is 0 - TMin, but since TMin is negative, we get abs(TMin) as the answer.
+          But in Two's Complement arithmetic, we can store this large of a positive number in an int, so we want tsub_ok to return 0.
+        But tsub_ok(0, TMin) turns into tadd_ok(0, TMin), which returns 1 because 0 + TMin = TMin, which is fine.
+
+    Example 3: x > 0, y = TMin.
+        The real math result here is x - TMin, but since TMin is negative, this turns into x + abs(TMin), which will result in
+          an overflow in Two's Complement arithmetic since TMax < abs(TMin). We want a return value of 0 from tsub_ok.
+        But tsub_ok(x, TMin) turns into tadd_ok(x, TMin) which returns 1, because TMin + x returns a number in the range of int.
+        
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
    
 
     return 0;
