@@ -690,12 +690,11 @@ int main() {
 		sum - x == -4 - 2 == -6 which would wrap to 2, and sum - y would be the same calculation, so the checks would
 		pass but overflow would still be occuring.
 	*/
+    printf("\n\n\n");
 
 
 
 	printf("Exercise 2.32\n\n");
-    
-
     /*
     Here is the buggy tsub_ok
         int tsub_ok(int x, int y) {
@@ -723,7 +722,26 @@ int main() {
           an overflow in Two's Complement arithmetic since TMax < abs(TMin). We want a return value of 0 from tsub_ok.
         But tsub_ok(x, TMin) turns into tadd_ok(x, TMin) which returns 1, because TMin + x returns a number in the range of int.
         
+    
+        After this problem I had a pretty mind blowing conversation with Claude: https://claude.ai/share/e0c7373f-a726-4ba6-8602-2887114f5f53
     */
+   printf("\n\n\n");
+
+
+
+   printf("Exercise 2.33\n\n");
+   /* Table filled out in Liquid Text
+   
+   The takeaway here is that, if you take any binary sequence, convert the binary to a two decimal numbers - one via a Two's complement
+   interpretation of the binary and one via an unsigned interpretation - then take the arithmetic inverse of those two decimal numbers and convert those
+   inverses back to binary using the same binary interpretation used to generate the original decimal number, those two bit patterns will be
+   the same.
+   */
+  printf("\n\n\n");
+
+
+
+  printf("Exercise 2.34");
 
 
 
