@@ -753,7 +753,38 @@ int main() {
 
     The lower w bits of the product are always the same. ✓
     The upper w bits are not the same — and this is precisely why signed and unsigned multiply do have separate instructions on most architectures (e.g., IMUL vs MUL on x86), unlike addition.
+*/
+printf("\n\n\n");
+
+
+
+printf("Exercise 2.35\n\n");
+/*
+int tmult_ok(int x, int y) {
+    int p = x * y;
+    // Either x is zero, or dividing p by x gives y
+    return !x || p/x == y;
+}
+*/
+
+
+// Skipping this problem - interesting mathematical proof, but not really a good spend of time for me
+printf("\n\n\n");
+
+
+
+printf("Exercise 2.36\n\n");
+/*
+int tmult_ok64(int x, int y) {
+    int64_t p64 = (int64_t)x * (int64_t)y;
+    return (int)p64 == p64;
+}
     */
+   print("\n\n\n");
+   
+
+
+
 
 
 
