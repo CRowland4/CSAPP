@@ -742,6 +742,18 @@ int main() {
 
 
   printf("Exercise 2.34");
+  /*
+  Table filled in in Liquid Text. Crazy take away is that, in either a Two's complement interpretation or Unsigned interpretation,
+    if you start with a w-bit binary, convert to decimal, multiply the decimal numbers, convert the result to a 2w-bit binary in the
+    respective representation, and then truncate the 2w-bit binary result to w bits, the two 2-bit binary representations will be
+    the same.
+
+    Note from Claude:
+
+
+    The lower w bits of the product are always the same. ✓
+    The upper w bits are not the same — and this is precisely why signed and unsigned multiply do have separate instructions on most architectures (e.g., IMUL vs MUL on x86), unlike addition.
+    */
 
 
 
