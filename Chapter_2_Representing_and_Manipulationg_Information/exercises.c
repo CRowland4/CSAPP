@@ -780,9 +780,63 @@ int tmult_ok64(int x, int y) {
     return (int)p64 == p64;
 }
     */
-   print("\n\n\n");
-   
+   printf("\n\n\n");
 
+
+
+   printf("Exercise 2.37\n\n");
+   /*
+   A. No, this won't work on a 32-bit system - malloc will still cast asize to a 32-bit number
+
+   B. Since malloc can't allocate more than 2^32 bytes due to the asize argument being a 32-bit integer, we need to check for overflow BEFORE
+        trying to allocate to malloc.
+
+        uint64_t required_size = ele_cnt * (uint64_t) ele_size;
+        size_t request_size = (size_t) required_size;
+        if (required_size != request_size) {
+            // Overflow must have occurred, and operation is aborted
+            return NULL;
+        }
+
+        void *result = malloc(request_size);
+        if (result == NULL) {
+            // malloc failed
+            return NULL;
+        }
+   */
+  printf("\n\n\n");
+
+
+
+  printf("Exercise 2.38\n\n");
+  /*
+  
+    k = 0, b = 0:  a << 0 + 0
+    - This is just a
+
+    k = 0, b = a: a << 0 + a
+    - This is 2a
+
+    k = 1, b = 0: a << 1 + 0
+    - This is 2a
+
+    k = 1, b = a: a << 1 + a
+    - This is 3a
+
+    k = 2, b = 0: a << 2 + 0
+    - This is 4a
+
+    k = 2, b = a: a << 2 + a
+    - This is 5a
+
+    k = 3, b = 0: a << 3 + 0
+    - This is 8a
+
+    k = 3, b = a: a << 3 + a
+    - This is 9a
+
+    Answer: 1, 2, 3, 4, 5, 8, 9
+  */
 
 
 
